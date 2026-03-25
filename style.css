@@ -175,6 +175,7 @@ body {
   place-items: center;
   font-weight: 700;
   font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 .section-heading h2 {
@@ -267,11 +268,12 @@ body {
   padding: 1.25rem;
 }
 
+/* 3D JOY-CON STYLING */
 .joycon-mockup {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.9rem;
+  gap: 1rem;
   min-height: 430px;
 }
 
@@ -280,69 +282,87 @@ body {
   position: relative;
   width: 180px;
   height: 360px;
-  background: white;
   border: 3px solid #2c3a4a;
-  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, #ffffff 0%, #e6edff 100%);
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.15),
+    inset 0 3px 6px rgba(255, 255, 255, 0.6);
+  transition: 0.25s ease;
 }
 
 .joycon-left {
-  border-radius: 95px 18px 18px 95px;
+  border-radius: 100px 20px 20px 100px;
+  transform: rotate(-3deg);
 }
 
 .joycon-right {
-  border-radius: 18px 95px 95px 18px;
+  border-radius: 20px 100px 100px 20px;
+  transform: rotate(3deg);
   cursor: pointer;
 }
 
+.joycon-left:hover {
+  transform: rotate(-3deg) translateY(-6px) scale(1.02);
+}
+
+.joycon-right:hover {
+  transform: rotate(3deg) translateY(-6px) scale(1.02);
+}
+
+/* JOYSTICK */
 .analog-stick {
   position: absolute;
-  width: 72px;
-  height: 72px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
-  border: 3px solid #2c3a4a;
-  top: 58px;
-  left: 42px;
+  top: 60px;
+  left: 45px;
   cursor: pointer;
   background:
-    radial-gradient(circle at center, #dbe7ff 0 32%, #ffffff 33% 100%);
+    radial-gradient(circle at 30% 30%, #ffffff, #d6e2ff 70%),
+    radial-gradient(circle at center, #9fb6ff 0 40%, #2c3a4a 41%);
+  box-shadow:
+    inset 0 6px 8px rgba(0, 0, 0, 0.3),
+    0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
+/* BUTTON CLUSTER */
 .button-cluster {
   position: absolute;
-  top: 178px;
-  left: 56px;
-  width: 65px;
-  height: 65px;
+  top: 180px;
+  left: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 50% 15%, #a6b8e8 0 7px, transparent 8px),
-    radial-gradient(circle at 85% 50%, #a6b8e8 0 7px, transparent 8px),
-    radial-gradient(circle at 50% 85%, #a6b8e8 0 7px, transparent 8px),
-    radial-gradient(circle at 15% 50%, #a6b8e8 0 7px, transparent 8px);
+    radial-gradient(circle at 50% 20%, #c7d6ff 0 8px, transparent 9px),
+    radial-gradient(circle at 80% 50%, #c7d6ff 0 8px, transparent 9px),
+    radial-gradient(circle at 50% 80%, #c7d6ff 0 8px, transparent 9px),
+    radial-gradient(circle at 20% 50%, #c7d6ff 0 8px, transparent 9px);
 }
 
 .square-button {
   position: absolute;
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   border: 3px solid #2c3a4a;
-  bottom: 58px;
-  left: 78px;
+  bottom: 60px;
+  left: 80px;
 }
 
 .battery-mark {
   position: absolute;
-  width: 84px;
+  width: 90px;
   height: 130px;
   border: 3px dashed var(--secondary);
   border-radius: 16px;
-  bottom: 52px;
-  left: 48px;
+  bottom: 50px;
+  left: 45px;
   cursor: pointer;
 }
 
 .hotspot:hover {
-  box-shadow: 0 0 0 7px rgba(79, 124, 255, 0.16);
+  box-shadow: 0 0 0 10px rgba(63, 110, 232, 0.2);
 }
 
 .annotations {
@@ -391,6 +411,15 @@ body {
 /* REFERENCES */
 .references-card p {
   margin: 0.65rem 0;
+}
+
+.references-card a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.references-card a:hover {
+  text-decoration: underline;
 }
 
 /* MOBILE */
